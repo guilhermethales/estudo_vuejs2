@@ -21,7 +21,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="account in accounts.data" @click="goTo(1)">
+          <tr v-for="account in accounts.data" @click="goTo(account.id)">
             <td class="valign-wrapper">
               {{ account.title }} &nbsp;
               <small>agência: {{ account.agency }} / conta: {{ account.account_number }} / código do banco:{{ account.bank.code }}</small>

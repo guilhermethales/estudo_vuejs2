@@ -15,9 +15,10 @@
       <div class="card-content">
         <div class="row">
           <div class="col s9">
+          {{ account }}
             <div class="card-title">Detalhes da conta</div>
-            <p>Agência: 000 / Conta: 000 </p>
-            <p>Banco: nome - 000</p>
+            <p>Agência: {{ account.agency }} / Conta: {{ account.account_number }} </p>
+            <p>Banco: {{ bank.title }} - {{ bank.code }}</p>
             <p>Valor inicial da conta: R$ 000</p>
           </div>
           <div class="col s3 right-align">
@@ -26,8 +27,8 @@
         </div>
         <div class="row">
           <div class="col s12">
-            <a :href="'#/contas/1/editar'" class="btn blue">Editar</a>
-            <a href="" class="btn red" @click.prevent="remove(1)">Excluir</a>
+            <a :href="`#/contas/${account.id}/editar`" class="btn blue">Editar</a>
+            <a href="" class="btn red" @click.prevent="remove(account.id)">Excluir</a>
           </div>
         </div>
       </div>
@@ -46,6 +47,17 @@
         this.$router.push('/contas');
         console.log(id);
       }
+    },
+    computed: {
+      account() {
+        return this.$store.state.account.accountView;
+      },
+      bank() {
+        return this.account.bank || {};
+      }
+    },
+    created() {
+      this.$store.dispatch('getAccount', this.$route.params.id);
     }
   };
 </script>
