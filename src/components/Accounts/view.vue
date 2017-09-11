@@ -26,7 +26,7 @@
         </div>
         <div class="row">
           <div class="col s12">
-            <a :href="'#/contas/2/editar'" class="btn blue">Editar</a>
+            <a :href="'#/contas/1/editar'" class="btn blue">Editar</a>
             <a href="" class="btn red" @click.prevent="remove(1)">Excluir</a>
           </div>
         </div>
@@ -44,6 +44,7 @@
     methods: {
       remove(id) {
         this.$router.push('/contas');
+        console.log(id);
       }
     }
   };
