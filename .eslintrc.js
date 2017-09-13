@@ -38,6 +38,7 @@ module.exports = {
     'comma-dangle': 0,
     'no-console': 0,
     'global-require': 0,
-    'no-param-reassign': 0
+    'no-param-reassign': 0,
+    'no-unused-vars': 0
   }
 }

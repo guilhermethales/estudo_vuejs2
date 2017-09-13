@@ -15,7 +15,6 @@
       <div class="card-content">
         <div class="row">
           <div class="col s9">
-          {{ account }}
             <div class="card-title">Detalhes da conta</div>
             <p>Agência: {{ account.agency }} / Conta: {{ account.account_number }} </p>
             <p>Banco: {{ bank.title }} - {{ bank.code }}</p>
@@ -44,8 +43,10 @@
     name: 'accounts-view',
     methods: {
       remove(id) {
-        this.$router.push('/contas');
-        console.log(id);
+        this.$store.dispatch('removeAccount', this.$route.params.id)
+        .then(() => {
+          this.$router.push('/contas');
+        });
       }
     },
     computed: {
