@@ -39,6 +39,9 @@ module.exports = {
     'no-console': 0,
     'global-require': 0,
     'no-param-reassign': 0,
-    'no-unused-vars': 0
+    'no-unused-vars': 0,
+    'prefer-default-export': 0,
+    'dot-notation': 0,
+    'quote-props': 0
   }
 }
